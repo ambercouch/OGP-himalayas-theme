@@ -181,3 +181,32 @@ function timber_set_product( $post ) {
         $product = wc_get_product( $post->ID );
     }
 }
+
+function ac_levels_expiration_text($expiration_text, $level) {
+    // Check if the level ID matches the specific membership level ID you want to change
+    if ($level->id == 5) { // Change '2' to your membership level ID
+        $expiration_text = sprintf( __( 'Until auto renewal or unless cancelled', 'paid-memberships-pro' ), $level->expiration_number, pmpro_translate_billing_period( $level->expiration_period, $level->expiration_number ) );
+    }
+
+    return $expiration_text;
+}
+add_filter('pmpro_levels_expiration_text', 'ac_levels_expiration_text', 10, 2);
+
+function custom_pmpro_level_cost_text($cost_text, $level, $tags, $short) {
+    // Check if the level has an initial payment
+    if(5 == $level->id )
+    {
+        if ((float)$level->initial_payment > 0)
+        {
+            $cost_text = '<strong>'.pmpro_formatPrice($level->initial_payment).'</strong>';
+        } else
+        {
+            // Handle free levels
+            $cost_text = __('Free', 'paid-memberships-pro');
+        }
+    }
+
+    return $cost_text;
+}
+add_filter('pmpro_level_cost_text', 'custom_pmpro_level_cost_text', 10, 4);
+
