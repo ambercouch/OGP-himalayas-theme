@@ -185,7 +185,7 @@ function timber_set_product( $post ) {
 function ac_levels_expiration_text($expiration_text, $level) {
     // Check if the level ID matches the specific membership level ID you want to change
     if ($level->id == 5) { // Change '2' to your membership level ID
-        $expiration_text = sprintf( __( 'Until auto renewal or unless cancelled', 'paid-memberships-pro' ), $level->expiration_number, pmpro_translate_billing_period( $level->expiration_period, $level->expiration_number ) );
+        $expiration_text = sprintf( __( 'Until auto renewal on the 15th July or unless cancelled', 'paid-memberships-pro' ), $level->expiration_number, pmpro_translate_billing_period( $level->expiration_period, $level->expiration_number ) );
     }
 
     return $expiration_text;
