@@ -55,6 +55,12 @@ If you want to translate this theme to your language, refer to: https://translat
 /**********************************************************/
 
 == Changelog ==
+= Version 1.3.1 - 2024-04-02 =
+* Enhancement - General security measures.
+
+= Version 1.3.0 - 2023-09-18 =
+* Tweak - Updated WordPress tested upto version to 6.3.
+
 = Version 1.2.9 - 2021-08-18 =
 * Enhancement - Added CSS font-display property and swap value for better performance.
 
